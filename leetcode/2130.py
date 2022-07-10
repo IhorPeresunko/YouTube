@@ -6,18 +6,13 @@
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
         res = 0
-        n = 0
         
-        cur = head
-        while cur:
-            cur = cur.next
-            n += 1
-            
-        prev = None
-        cur = head
-        for _ in range(n // 2):
+        cur = fast = head
+        while fast and fast.next:
+            fast = fast.next.next
             cur = cur.next
 
+        prev = None
         while cur:
             next = cur.next
             
@@ -33,7 +28,6 @@ class Solution:
             
             p1 = p1.next
             p2 = p2.next
-            
             
         return res
         
