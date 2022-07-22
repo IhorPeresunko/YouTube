@@ -2,9 +2,7 @@ class Solution:
     def countGoodSubstrings(self, s: str) -> int:
         memory, left, res = collections.defaultdict(int), 0, 0
 
-        for right, char in enumerate(s):
-            cur_char = s[right]
-            
+        for right, cur_char in enumerate(s):            
             memory[cur_char] += 1
 
             if right - left == 3:
